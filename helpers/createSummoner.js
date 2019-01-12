@@ -1,7 +1,7 @@
 /*
  * Input: summonerId, Output: Summoner Object
 
- * The purpoes of this function is to take in a summoner ID, and use the Riot Games API to turn that into ID into a 'Summoner Object'. A summoner object contains relevant information such as
+ * The purpoes of this function is to take in a summoner ID, and use the Riot Games API to turn that into ID into a 'Summoner Object': a summoner object containing relevant information such as
  * number of wins, rank, number of wins with a certain champion etc. The first call to the API is done to receive the summoner name, icon and encrypted id. We use the encrypted id in a second 
  * call to the API to receive further information such as rank. This helper function is called in the GET(/Summoner) route.
  * 
