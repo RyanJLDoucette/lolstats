@@ -1,0 +1,10 @@
+<% include ./partials/header.ejs %>
+
+<p>Summoner Icon Id: <%= summoner.icon %></p>
+<h1><%= summoner.name %></h1>
+<p>Summoner Level: <%= summoner.level %></p>
+<p>Rank: <%= summoner.rank.tier %> <%= summoner.rank.division %> - <%= summoner.rank.lp %>lp</p>
+<p>Rank Wins: <%= summoner.wins %></p>
+<p>Rank Losses <%= summoner.losses %></p>
+
+<% include ./partials/footer.ejs %>
