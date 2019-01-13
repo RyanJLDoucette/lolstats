@@ -49,7 +49,8 @@ module.exports = {
                             summonerId: summonerId,
                             rank: rank,
                             wins: wins,
-                            losses: losses
+                            losses: losses,
+                            winRatio: wins/(wins + losses)
                         };
                         //console.log(summonerObject);
                         callback(summonerObject);
