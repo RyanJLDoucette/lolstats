@@ -1,0 +1,39 @@
+Summoner (The stuff that's displayed on a Summoner's Profile Picture)
+    Summoner Name
+    Summoner Picture
+    Rank
+        tier
+        division
+        LP
+    Rank wins
+    Rank Losses
+    Top 3 Champions
+        Champion Name 
+        Champion Picture
+        Champion Level
+        Champion Expereince Points
+    Medals (Maybe have icons for these that have a tooltip stating what they are)
+        Inactive
+        hotStreak
+        miniSeries
+        Veteran
+        Fresh Blood
+Live Game Button (Click this button, if summoner is in game then produce the match view)
+
+if this call returns data https://na1.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/SUMMONER_ID
+    That Summoner is in game
+    Use that call to the API to gather some information as well as use the GameId Found to get even more information found in match v4
+Else
+    Summoner is not in game
+
+
+If Summoner is in game and they click live game button, we want to display information about that match.
+Match(Contains 10 summoners with more information such as)
+    gameStartTime
+    gameMode
+    mapId
+    gameType
+    bannedChampions (listed in order)
+    participants (this will be all 10 summoners with a condensed version of the summoner view above listed in pickTurn order)
+    championId (we will use this to also gain further information on how that summoner performs with this champ in ranked)
+
