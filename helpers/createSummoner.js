@@ -11,7 +11,7 @@ var request = require('request');
 module.exports = {
     createSummoner: function (summonerName, callback) {
         var summonerName = summonerName;
-        const apiKey = "?api_key=RGAPI-15c087e7-8d9b-49f4-9867-8f4788d3cf0a"; //I have to regenerate this key from the Riot Games API Dashboard every 24 hours.
+        const apiKey = "?api_key=RGAPI-791ad99d-f5f5-4ddc-8e7f-aa38b5d6d2cb"; //I have to regenerate this key from the Riot Games API Dashboard every 24 hours.
         request("https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/" + summonerName + apiKey, function (error, response, body) {
             if (error) {
                 console.log("Error with the API  summoner by name request");

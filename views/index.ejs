@@ -1,17 +1,17 @@
 <% include ./partials/header.ejs %>
 
-<form class="ui big form" action="/summoner/" method="GET">
-    <div class="two fields">
-        <div class="field">
+<div class="ui container">
+    <img class="ui centered medium image" src="../img/teemo.png">
+    <form class="ui huge form" action="/summoner/" method="GET">
+        <div class="fields">
             <div class="field">
-                <input type="text" name="name" placeholder="Search Summoner Name ...">
+
+            </div>
+            <input type="text" name="name" placeholder="Search Summoner Name ...">
+            <div class="field">
+                <button class="ui huge blue submit button">Search</button>
             </div>
         </div>
-        <div class="field">
-            <button class="ui big blue submit button">Search</button>
-        </div>
-    </div>
-</form>
-
-
+    </form>
+    
 <% include ./partials/footer.ejs %>
