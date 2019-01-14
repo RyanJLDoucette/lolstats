@@ -10,6 +10,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(require('./controllers/index.js')); //routes
 app.use(require('./controllers/summoner.js'));
+app.use(require('./controllers/match.js'));
 
 /*
 app.get("/summoner", function(req, res){
