@@ -26,7 +26,6 @@ module.exports = {
                     var name = parsedData.name;
                     var icon = parsedData.profileIconId;
                     var level = parsedData.summonerLevel;
-                    console.log(level)
                     var summonerId = parsedData.id;//This is an encrypted Id. We can use to gain more information on this summoner which we will do below.
                     request("https://na1.api.riotgames.com/lol/league/v4/positions/by-summoner/" + summonerId + apiKey, function (error, response, body) {
                         if (error) {
@@ -61,7 +60,6 @@ module.exports = {
                                     winRatio: wins / (wins + losses)
 
                                 };
-                                console.log(summonerObject.summonerId);
                                 callback(summonerObject);
                             }
                             else {// Summoner has no ranked stats
@@ -77,19 +75,24 @@ module.exports = {
         });//end inital call
     },//end create summoner method
     getParticipatingSummoners: function(summonerId, callback) {
-        //console.log("Executed the participating summoners function");
-        //console.log("This is the ID" + summonerId);
-        request("https://na1.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/SUMMONER_ID" + summonerId + apiKey, function(error, response, body) {
+        request("https://na1.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/" + summonerId + apiKey, function(error, response, body) {
             if(error) {
                 console.log("Error getting participating summoners");
                 console.log(error);
             } else {
                 console.log("https://na1.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/" + summonerId + apiKey);
+                console.log(response.statusCode);
                 if(response.statusCode == 200) {
-                    console.log("The request for participating summoners was successful");
+                    //Summoner is in game
+                    var parsedData = JSON.parse(body);//puts the data in a usable format
+                    callback(parsedData);
+                    return
                 }
-                else {
-                    console.log("The request for participating summoners was NOT successful");
+                else if(response.statusCode == 404 ){
+                    //Summoner not in game
+                    console.log("The request for participating summoners was NOT successful - Summoner is NOT in Game");
+                } else {
+                    console.log("The request for participating summoners was NOT successful - Unknown reason");
                 }
             }
         });
