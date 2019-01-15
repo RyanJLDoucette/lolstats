@@ -8,12 +8,12 @@
 <p>Rank Losses <%= summoner.losses %></p>
 <p>Win Ratio <%= summoner.winRatio %></p>
 
-<form class="ui form" action="/" method="GET">
+<form class="ui form" action="/match/<%= summoner.summonerId %>" method="GET">
     <div class="field">
         <button class="ui blue submit button">Live Game</button>
     </div>
     <div class="field">
-        <button class="ui orange button">Back</button>
+        <button class="ui orange button" formaction="/">Back</button>
     </div>
 </form>
 

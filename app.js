@@ -13,7 +13,7 @@ app.use(require('./controllers/summoner.js'));
 app.use(require('./controllers/match.js'));
 
 app.get("*", function(req, res){ // If route not found display the 404 Not Found Page
-   res.render("404");
+   res.send("404 - page not found");
 });
 
 //SET PORT 
