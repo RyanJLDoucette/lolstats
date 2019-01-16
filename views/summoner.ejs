@@ -1,20 +1,70 @@
 <% include ./partials/header.ejs %>
 
 <div class="ui main segment">
-    <img class="ui tiny circular image" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/<%=summoner.icon%>.png">
-    <h1><%= summoner.name %></h1>
-    <p>Summoner Level: <%= summoner.level %></p>
-    <p>Rank: <%= summoner.rank.tier %> <%= summoner.rank.division %> - <%= summoner.rank.lp %>lp</p>
-    <p>Rank Wins: <%= summoner.wins %></p>
-    <p>Rank Losses <%= summoner.losses %></p>
-    <p>Win Ratio <%= summoner.winRatio %></p>
-    <form class="ui form" action="/match/<%= summoner.summonerId %>" method="GET">
-        <div class="ui buttons">
-            <button class="ui  primary button">Live Game</button>
-            <div class="or"></div>
-            <button formaction="/" class="ui orange button">Back</button>
-          </div>
-    </form>
+    <div class="ui two column very relaxed grid">
+        <div class="column">
+            <img class="ui tiny circular image" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/<%=summoner.icon%>.png">
+            <h1><%= summoner.name %></h1>
+            <p>Summoner Level: <%= summoner.level %></p>
+            <p>Rank: <%= summoner.rank.tier %> <%= summoner.rank.division %> - <%= summoner.rank.lp %>lp</p>
+            <p>Rank Wins: <%= summoner.wins %></p>
+            <p>Rank Losses <%= summoner.losses %></p>
+            <p>Win Ratio <%= summoner.winRatio %></p>
+        </div>
+        <div class="column">
+            <div class="ui two column grid">
+                <div class="row">
+                    <div class="column">
+                        <img class="ui test rounded image" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png">
+                    </div>
+                    <div class="column">
+                        <p>Aatrox</p>
+                        <p>2.5:1 KDA</p>
+                        <p>12.1-4.2-23.2</p>
+                        <p>121cs</p>
+                        <p>55% win rate</p>
+                        <p>55 Games played</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <img class="ui test rounded image" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png">
+                    </div>
+                    <div class="column">
+                        <p>Aatrox</p>
+                        <p>2.5:1 KDA</p>
+                        <p>12.1-4.2-23.2</p>
+                        <p>121cs</p>
+                        <p>55% win rate</p>
+                        <p>55 Games played</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <img class="ui test rounded image" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/Aatrox.png">
+                    </div>
+                    <div class="column">
+                        <p>Aatrox</p>
+                        <p>2.5:1 KDA</p>
+                        <p>12.1-4.2-23.2</p>
+                        <p>121cs</p>
+                        <p>55% win rate</p>
+                        <p>55 Games played</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui vertical divider"></div>
+</div>
+<div class="ui one column centered grid">
+        <form class="ui form" action="/match/<%= summoner.summonerId %>" method="GET">
+            <div class="ui buttons">
+                <button class="ui big primary button">Live Game</button>
+                <div class="or"></div>
+                <button formaction="/" class="ui big orange button">Back</button>
+              </div>
+        </form>
 </div>
 
 <% include ./partials/footer.ejs %>
