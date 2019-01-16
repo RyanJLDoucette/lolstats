@@ -1,20 +1,20 @@
 <% include ./partials/header.ejs %>
 
-<p>Summoner Icon Id: <%= summoner.icon %></p>
-<h1><%= summoner.name %></h1>
-<p>Summoner Level: <%= summoner.level %></p>
-<p>Rank: <%= summoner.rank.tier %> <%= summoner.rank.division %> - <%= summoner.rank.lp %>lp</p>
-<p>Rank Wins: <%= summoner.wins %></p>
-<p>Rank Losses <%= summoner.losses %></p>
-<p>Win Ratio <%= summoner.winRatio %></p>
-
-<form class="ui form" action="/match/<%= summoner.summonerId %>" method="GET">
-    <div class="field">
-        <button class="ui blue submit button">Live Game</button>
-    </div>
-    <div class="field">
-        <button class="ui orange button" formaction="/">Back</button>
-    </div>
-</form>
+<div class="ui main segment">
+    <img class="ui tiny circular image" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/<%=summoner.icon%>.png">
+    <h1><%= summoner.name %></h1>
+    <p>Summoner Level: <%= summoner.level %></p>
+    <p>Rank: <%= summoner.rank.tier %> <%= summoner.rank.division %> - <%= summoner.rank.lp %>lp</p>
+    <p>Rank Wins: <%= summoner.wins %></p>
+    <p>Rank Losses <%= summoner.losses %></p>
+    <p>Win Ratio <%= summoner.winRatio %></p>
+    <form class="ui form" action="/match/<%= summoner.summonerId %>" method="GET">
+        <div class="ui buttons">
+            <button class="ui  primary button">Live Game</button>
+            <div class="or"></div>
+            <button formaction="/" class="ui orange button">Back</button>
+          </div>
+    </form>
+</div>
 
 <% include ./partials/footer.ejs %>

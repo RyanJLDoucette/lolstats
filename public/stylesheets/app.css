@@ -9,3 +9,11 @@ img {
 body {
     background-color: #f6f6f6;  
 }
+
+#blueTeam {
+    color: #0f52ba;
+}
+
+#redTeam {
+    color: #ED4337;
+}

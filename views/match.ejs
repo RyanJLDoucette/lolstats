@@ -1,11 +1,11 @@
 <% include ./partials/header.ejs %>
 <h1>Summoners in Game</h1>
-<div class="ui relaxed stackable grid">
+<div class="ui segment relaxed stackable grid">
     <div class="five column row">
         <% matchInfo.participants.forEach(function(participant) { %>
         <% if(participant.teamId == 100) { %>
         <div class="column">
-            <h1><%= participant.summonerName %></h1>
+            <h1 id="blueTeam"><%= participant.summonerName %></h1>
             <p>Profile Icon Id: <%= participant.profileIconId %></p>
             <p>Summoner Spell One<%= participant.spell1Id %></p>
             <p>Summoner Spell Two<%= participant.spell2Id %></p>
@@ -18,7 +18,7 @@
         <% matchInfo.participants.forEach(function(participant) { %>
         <% if(participant.teamId == 200) { %>
         <div class="column">
-            <h1><%= participant.summonerName %></h1>
+            <h1 id="redTeam"><%= participant.summonerName %></h1>
             <p>Profile Icon Id: <%= participant.profileIconId %></p>
             <p>Summoner Spell One<%= participant.spell1Id %></p>
             <p>Summoner Spell Two<%= participant.spell2Id %></p>

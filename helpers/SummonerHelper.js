@@ -91,6 +91,8 @@ module.exports = {
                 else if(response.statusCode == 404 ){
                     //Summoner not in game
                     console.log("The request for participating summoners was NOT successful - Summoner is NOT in Game");
+                    callback();
+                    return
                 } else {
                     console.log("The request for participating summoners was NOT successful - Unknown reason");
                 }
