@@ -3,13 +3,34 @@
 <div class="ui main segment">
     <div class="ui two column very relaxed grid">
         <div class="column">
-            <img class="ui tiny circular image" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/<%=summoner.icon%>.png">
-            <h1><%= summoner.name %></h1>
-            <p>Summoner Level: <%= summoner.level %></p>
-            <p>Rank: <%= summoner.rank.tier %> <%= summoner.rank.division %> - <%= summoner.rank.lp %>lp</p>
-            <p>Rank Wins: <%= summoner.wins %></p>
-            <p>Rank Losses <%= summoner.losses %></p>
-            <p>Win Ratio <%= summoner.winRatio %></p>
+            <div class="ui one column center aligned grid">
+                <div class="left aligned column">
+                    <img class="ui tiny circular middle aligned image" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/<%=summoner.icon%>.png">
+                    <span>
+                        <div style="display: inline-block">
+                            <h1><strong><%= summoner.name %></strong></h1>
+                        </div>
+                        <div>
+                            <p class="light">Level: <%= summoner.level %></p>
+                        </div>
+                    </span>
+                </div>
+                <div class="column">
+                    <img class="ui centered small image" src="../img/emblems/gold_emblem.png">
+                </div>
+                <div class="column">
+                    <p><strong><%= summoner.rank.tier %> <%= summoner.rank.division %> <%= summoner.rank.lp %>lp</strong></p>
+                </div>
+                <div class="column">
+                    <p><%= summoner.wins %><span id="blueTeam">W</span></p>
+                </div>
+                <div class="column">
+                    <p><%= summoner.losses %><span id="redTeam">L</span></p>
+                </div>
+                <div class="column">
+                    <p class="light">Win Ratio <%= summoner.winRatio %></p>
+                </div>
+            </div>
         </div>
         <div class="column">
             <div class="ui two column grid">
@@ -19,11 +40,9 @@
                     </div>
                     <div class="column">
                         <p>Aatrox</p>
-                        <p>2.5:1 KDA</p>
-                        <p>12.1-4.2-23.2</p>
-                        <p>121cs</p>
-                        <p>55% win rate</p>
-                        <p>55 Games played</p>
+                        <p class="light">2.5:1 KDA</p>
+                        <p class="light">12.1-4.2-23.2</p>
+                        <p class="light">121cs</p>
                     </div>
                 </div>
                 <div class="row">
@@ -32,11 +51,9 @@
                     </div>
                     <div class="column">
                         <p>Aatrox</p>
-                        <p>2.5:1 KDA</p>
-                        <p>12.1-4.2-23.2</p>
-                        <p>121cs</p>
-                        <p>55% win rate</p>
-                        <p>55 Games played</p>
+                        <p class="light">2.5:1 KDA</p>
+                        <p class="light">12.1-4.2-23.2</p>
+                        <p class="light">121cs</p>
                     </div>
                 </div>
                 <div class="row">
@@ -45,11 +62,9 @@
                     </div>
                     <div class="column">
                         <p>Aatrox</p>
-                        <p>2.5:1 KDA</p>
-                        <p>12.1-4.2-23.2</p>
-                        <p>121cs</p>
-                        <p>55% win rate</p>
-                        <p>55 Games played</p>
+                        <p class="light">2.5:1 KDA</p>
+                        <p class="light">12.1-4.2-23.2</p>
+                        <p class="light">121cs</p>
                     </div>
                 </div>
             </div>

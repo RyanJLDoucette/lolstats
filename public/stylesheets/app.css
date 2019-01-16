@@ -1,11 +1,6 @@
 .ui.main {
     margin-top: 7em;
     margin-bottom: 1em;
-    padding: 
-}
-
-img {
-    margin-bottom: 3em;
 }
 
 body {
@@ -24,4 +19,16 @@ body {
     width: 100px;
     height: auto;
     font-size: 0.85714286rem;
+}
+
+.redbg {
+    background-color: red;
+}
+
+p {
+    font-weight: bold;
+}
+
+.light {
+    font-weight: normal;
 }

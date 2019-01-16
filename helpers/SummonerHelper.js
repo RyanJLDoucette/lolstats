@@ -10,7 +10,7 @@
  * 
  */
 var request = require('request');
-const apiKey = "?api_key=RGAPI-f43b9714-8256-4115-b2f5-864272985562"; //I have to regenerate this key from the Riot Games API Dashboard every 24 hours.
+const apiKey = "?api_key=RGAPI-b25f9274-8b62-4142-9a00-7d9241a1534c"; //I have to regenerate this key from the Riot Games API Dashboard every 24 hours.
 
 module.exports = {
     createSummoner: function (summonerName, callback) {
