@@ -1,5 +1,4 @@
 <% include ./partials/header.ejs %>
-
 <div class="ui main segment">
     <div class="ui two column very relaxed grid">
         <div class="column">
@@ -30,13 +29,14 @@
                     <p><strong><%= summoner.rank.tier %> <%= summoner.rank.division %> <%= summoner.rank.lp %>lp</strong></p>
                 </div>
                 <div class="column">
-                    <p><%= summoner.wins %><span id="blueTeam">W</span></p>
+                    <p>
+                        <%= summoner.wins %><span id="blueTeam">W</span>
+                        <%= summoner.losses %><span id="redTeam">L</span>
+                    </p>
+                    <p>Games Played: <%= summoner.wins + summoner.losses %></p>
                 </div>
                 <div class="column">
-                    <p><%= summoner.losses %><span id="redTeam">L</span></p>
-                </div>
-                <div class="column">
-                    <p class="light">Win Ratio <%= summoner.winRatio %></p>
+                    <div id="chartContainer" style="height: 200px; width: 100%;"></div>
                 </div>
             </div>
         </div>
@@ -89,5 +89,26 @@
               </div>
         </form>
 </div>
+
+<script>
+    window.onload = function() {
+        var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        data: [{
+            type: "doughnut",
+            startAngle: 60,
+            innerRadius: 50,
+            indexLabelFontSize: 17,
+            indexLabel: "{label} - #percent%",
+            toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+            dataPoints: [
+                { y: 57, label: "Wins" },
+                { y: 50, label: "Losses" }
+            ]
+        }]
+    });
+    chart.render();
+    }
+</script>
 
 <% include ./partials/footer.ejs %>
