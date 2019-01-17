@@ -5,17 +5,23 @@
         <div class="column">
             <div class="ui one column center aligned grid">
                 <div class="left aligned column">
-                    <div style="display: inline-block;">
-                            <img class="ui tiny rounded image" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/<%=summoner.icon%>.png">
+                    <div class="ui grid">
+                        <div class="row">
+                            <div class="three wide column">
+                                <img class="ui tiny rounded image" src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/profileicon/<%=summoner.icon%>.png">
+                            </div>
+                            <div class="thirteen wide column">
+                                <span>
+                                    <div style="display: inline-block">
+                                        <h1><strong><%= summoner.name %></strong></h1>
+                                    </div>
+                                    <div>
+                                        <p class="light">Level: <%= summoner.level %></p>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                    <span>
-                        <div style="display: inline-block">
-                            <h1><strong><%= summoner.name %></strong></h1>
-                        </div>
-                        <div>
-                            <p class="light">Level: <%= summoner.level %></p>
-                        </div>
-                    </span>
                 </div>
                 <div class="column">
                     <img class="ui centered small image" src="../img/emblems/gold_emblem.png">
