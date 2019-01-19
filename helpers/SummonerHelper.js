@@ -46,6 +46,7 @@ module.exports = {
                                 var wins = parsedData[rankedDataLocation].wins;
                                 var losses = parsedData[rankedDataLocation].losses;
                                 //For simplicity - we store all information gathered into a summoner object and return it.
+                                var emblem = "../img/emblems/" + rank.tier + "_emblem.png"
                                 var summonerObject = {
                                     name: name,
                                     icon: icon,
@@ -54,8 +55,8 @@ module.exports = {
                                     rank: rank,
                                     wins: wins,
                                     losses: losses,
-                                    winRatio: wins / (wins + losses)
-
+                                    winRatio: wins / (wins + losses),
+                                    emblem
                                 };
                                 callback(summonerObject);
                                 return
