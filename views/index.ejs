@@ -1,13 +1,11 @@
 <% include ./partials/header.ejs %>
 
-<div class="ui container">
-        <img id="background-img" class="ui centered medium image" src="../img/teemo.png">
-        <form class="ui huge form" action="/summoner/" method="GET">
-                <div class="ui fluid action input">
-                    <input type="text" name="name" placeholder="Search Summoner Name ...">
-                    <button class="ui huge blue submit button">Search</button>
-                </div>
-            </div>
-        </form>
-    
+<img id="background-img" class="ui centered medium image" src="../img/teemo.png">
+<form class="ui huge form" action="/summoner/" method="GET">
+    <div class="ui fluid action input">
+        <input type="text" name="name" placeholder="Search Summoner Name ...">
+        <button class="ui huge blue submit button">Search</button>
+    </div>
+</form>
+
 <% include ./partials/footer.ejs %>

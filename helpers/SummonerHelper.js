@@ -10,7 +10,7 @@
  * 
  */
 var request = require('request');
-const apiKey = "?api_key=RGAPI-5b41e60c-a014-4245-b3ba-f5ba94306912"; //I have to regenerate this key from the Riot Games API Dashboard every 24 hours.
+const apiKey = "?api_key=RGAPI-b1f495ca-0ecc-4df2-9800-2c0ef053a0e1"; //I have to regenerate this key from the Riot Games API Dashboard every 24 hours.
 
 module.exports = {
     createSummoner: function (summonerName, callback) {
@@ -35,13 +35,10 @@ module.exports = {
                             if (response.statusCode == 200 && JSON.parse(body) != "") {// Response 200 indicates Successful api call. 2nd param is needed because if summoner has no ranked stats it will be status code 200 but empty object returned. 
                                 var parsedData = JSON.parse(body);//puts it into a format we can use
                                 var rankedDataLocation = 0;//If summoner has no ranked flex stats, then data appears at index 0, if they do then it is at index 1
-                                //console.log("https://na1.api.riotgames.com/lol/league/v4/positions/by-summoner/" + summonerId + apiKey);
-                                if(parsedData[1]) {//if parsedData[1] exists, then summoner has ranked flex stats at index 0. We're looking solo queue data which we know now is at index 1
+                                if(parsedData[0].queueType == "RANKED_FLEX_SR") {//Sometimes the order of solo queue and flex are reversed. So we just check here to see what index the data we want is at
                                     rankedDataLocation = 1;
                                 }
                                 var rank = {
-                                    //NOTE: parsedData contains two arrays of information. Information at index 0 contains the statistics for ranked flex. We want solo/duo queue information which resides at
-                                    //at index 1 of the array. 
                                     tier: parsedData[rankedDataLocation].tier, //Example: Silver
                                     division: parsedData[rankedDataLocation].rank, //Example: 3
                                     lp: parsedData[rankedDataLocation].leaguePoints//Example: 27
@@ -61,15 +58,18 @@ module.exports = {
 
                                 };
                                 callback(summonerObject);
+                                return
                             }
                             else {// Summoner has no ranked stats
                                 callback(false);
+                                return
                             }
                         }
                     });//end of second call to the api
                 }
                 else {//The response code was not 200
                     callback(1);
+                    return
                 }
             }
         });//end inital call

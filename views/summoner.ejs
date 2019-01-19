@@ -1,5 +1,5 @@
 <% include ./partials/header.ejs %>
-<div class="ui main segment">
+<div class="ui segment">
     <div class="ui two column very relaxed grid">
         <div class="column">
             <div class="ui one column center aligned grid">
@@ -12,10 +12,13 @@
                             <div class="thirteen wide column">
                                 <span>
                                     <div>
-                                        <h1><strong><%= summoner.name %></strong></h1>
+                                        <h1><strong>
+                                                <%= summoner.name %></strong></h1>
                                     </div>
                                     <div>
-                                        <p class="light">Level: <%= summoner.level %></p>
+                                        <p class="light">Level:
+                                            <%= summoner.level %>
+                                        </p>
                                     </div>
                                 </span>
                             </div>
@@ -29,14 +32,19 @@
                     <img class="ui centered small image" src="../img/emblems/gold_emblem.png">
                 </div>
                 <div class="column">
-                    <p><strong><%= summoner.rank.tier %> <%= summoner.rank.division %> <%= summoner.rank.lp %>lp</strong></p>
+                    <p><strong>
+                            <%= summoner.rank.tier %>
+                            <%= summoner.rank.division %>
+                            <%= summoner.rank.lp %>lp</strong></p>
                 </div>
                 <div class="column">
                     <p>
                         <%= summoner.wins %><span id="blueTeam">W</span>
                         <%= summoner.losses %><span id="redTeam">L</span>
                     </p>
-                    <p>Games Played: <%= summoner.wins + summoner.losses %></p>
+                    <p>Games Played:
+                        <%= summoner.wins + summoner.losses %>
+                    </p>
                 </div>
                 <div class="column">
                     <div id="chartContainer" style="height: 200px; width: 100%;"></div>
@@ -83,33 +91,33 @@
     </div>
     <div class="ui vertical divider"></div>
 </div>
-<div class="ui one column centered grid">
-        <form class="ui form" action="/match/<%= summoner.summonerId %>" method="GET">
-            <div class="ui buttons">
-                <button class="ui big primary button">Live Game</button>
-                <button formaction="/" class="ui big orange button">Go Back</button>
-              </div>
-        </form>
+<div class="ui one column centered grid" style="margin-top: 1em;">
+    <form class="ui form" action="/match/<%= summoner.summonerId %>" method="GET">
+        <div class="ui buttons">
+            <button class="ui big primary button">Live Game</button>
+            <button formaction="/" class="ui big orange button">Go Back</button>
+        </div>
+    </form>
 </div>
 
 <script>
-    window.onload = function() {
+    window.onload = function () {
         var chart = new CanvasJS.Chart("chartContainer", {
-        animationEnabled: true,
-        data: [{
-            type: "doughnut",
-            startAngle: 60,
-            innerRadius: 50,
-            indexLabelFontSize: 17,
-            indexLabel: "{label} - #percent%",
-            toolTipContent: "<b>{label}:</b> {y} (#percent%)",
-            dataPoints: [
-                { y: 57, label: "Wins" },
-                { y: 50, label: "Losses" }
-            ]
-        }]
-    });
-    chart.render();
+            animationEnabled: true,
+            data: [{
+                type: "doughnut",
+                startAngle: 60,
+                innerRadius: 50,
+                indexLabelFontSize: 17,
+                indexLabel: "{label} - #percent%",
+                toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                dataPoints: [
+                    { y: 57, label: "Wins" },
+                    { y: 50, label: "Losses" }
+                ]
+            }]
+        });
+        chart.render();
     }
 </script>
 
