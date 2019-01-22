@@ -17,6 +17,7 @@ router.get("/summoner", function(req, res){
    var summonerName = req.query.name; //req.query is what was inputted from the form on the landing page. The input id was name.
    summonerHelper.createSummoner(summonerName, function(receivedSummoner) {
       if(receivedSummoner) {
+         summonerHelper.getTopChampions(receivedSummoner.accountId);
          res.render("summoner", {summoner: receivedSummoner});
       } else {
          res.render("invalid_summoner");
